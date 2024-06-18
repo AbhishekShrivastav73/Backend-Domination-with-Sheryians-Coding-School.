@@ -15,3 +15,9 @@ Break down of the core concepts of JavaScript in simple terms. You'll learn ever
 
 ### Asynchronous Javascript : 
 In this lesson, we'll introduce you to the concept of asynchronous programming in JavaScript. We'll explore why it's important and how it can make your programs more efficient. Get ready to learn about asynchronous functions, callbacks, promises, and async/await syntax. By understanding asynchronous JavaScript, you'll be able to create dynamic and responsive web applications. Let's dive in and start mastering asynchronous programming!
+
+# How Internet Works.
+
+### Basics 
+
+In this lesson, we'll take a deep dive into the fascinating world of the internet. We'll explore how data travels across the globe, from your device to servers and back again. You'll learn about protocols like TCP/IP, DNS, and HTTP, which form the backbone of the internet. By the end of this lesson, you'll have a clear understanding of the infrastructure that powers the internet and how information is transmitted between devices. Let's unravel the mysteries of the internet together!
