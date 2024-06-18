@@ -21,3 +21,7 @@ In this lesson, we'll introduce you to the concept of asynchronous programming i
 ### Basics 
 
 In this lesson, we'll take a deep dive into the fascinating world of the internet. We'll explore how data travels across the globe, from your device to servers and back again. You'll learn about protocols like TCP/IP, DNS, and HTTP, which form the backbone of the internet. By the end of this lesson, you'll have a clear understanding of the infrastructure that powers the internet and how information is transmitted between devices. Let's unravel the mysteries of the internet together!
+
+### More Information 
+
+In this lesson, we'll simplify what reverse proxies are and how they work. Think of a reverse proxy as a shield that stands between the internet and your web servers, protecting them from direct access. We'll explore how reverse proxies enhance security, improve performance, and streamline network traffic. By the end of this lesson, you'll have a clear understanding of how reverse proxies can benefit your online infrastructure. Let's dive in and uncover the secrets of reverse proxies together!
