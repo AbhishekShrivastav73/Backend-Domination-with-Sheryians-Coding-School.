@@ -12,7 +12,10 @@ In this Section, we'll introduce you to the fascinating world of JavaScript, the
 
 ### Basics : 
 Break down of the core concepts of JavaScript in simple terms. You'll learn everything from variables and data types to loops and functions. By the end of this module, you'll have a solid understanding of the basics of JavaScript, setting you up for success as you dive deeper into web development. Let's unleash the power of JavaScript together!
-
+#### How Internet Works ? 
+The internet connects devices worldwide through a network of cables and servers. When you request a webpage, your device sends data to your Internet Service Provider (ISP), which then routes it to the server hosting the page. The server sends the data back, and your device displays the webpage. This happens quickly, enabling global communication.
+#### Understanding IP Address ?
+An IP address is a unique number assigned to each device on the internet. It works like a home address, telling other devices where to send data, such as websites or emails. Each device needs an IP address to communicate and share information online.
 ### Asynchronous Javascript : 
 In this lesson, we'll introduce you to the concept of asynchronous programming in JavaScript. We'll explore why it's important and how it can make your programs more efficient. Get ready to learn about asynchronous functions, callbacks, promises, and async/await syntax. By understanding asynchronous JavaScript, you'll be able to create dynamic and responsive web applications. Let's dive in and start mastering asynchronous programming!
 
