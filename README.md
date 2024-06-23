@@ -27,6 +27,9 @@ The internet connects devices worldwide through a network of cables and servers.
 #### Understanding IP Address ?
 An IP address is a unique number assigned to each device on the internet. It works like a home address, telling other devices where to send data, such as websites or emails. Each device needs an IP address to communicate and share information online.
 
+#### What is MAC Address ? 
+A MAC address is a unique identifier assigned to a device's network hardware, like a Wi-Fi card or Ethernet adapter. Think of it as a serial number for your device's internet connection hardware. When devices communicate within a local network, the MAC address helps ensure that the information goes to the correct device. Unlike IP addresses, which can change, MAC addresses are usually fixed and assigned by the manufacturer.
+
 ### More Information 
 
 In this lesson, we'll simplify what reverse proxies are and how they work. Think of a reverse proxy as a shield that stands between the internet and your web servers, protecting them from direct access. We'll explore how reverse proxies enhance security, improve performance, and streamline network traffic. By the end of this lesson, you'll have a clear understanding of how reverse proxies can benefit your online infrastructure. Let's dive in and uncover the secrets of reverse proxies together!
