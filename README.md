@@ -22,12 +22,12 @@ In this lesson, we'll introduce you to the concept of asynchronous programming i
 
 In this lesson, we'll take a deep dive into the fascinating world of the internet. We'll explore how data travels across the globe, from your device to servers and back again. You'll learn about protocols like TCP/IP, DNS, and HTTP, which form the backbone of the internet. By the end of this lesson, you'll have a clear understanding of the infrastructure that powers the internet and how information is transmitted between devices. Let's unravel the mysteries of the internet together!
 
-#### How Internet Works ? 
+### How Internet Works ? 
 The internet connects devices worldwide through a network of cables and servers. When you request a webpage, your device sends data to your Internet Service Provider (ISP), which then routes it to the server hosting the page. The server sends the data back, and your device displays the webpage. This happens quickly, enabling global communication.
-#### Understanding IP Address ?
+### Understanding IP Address ?
 An IP address is a unique number assigned to each device on the internet. It works like a home address, telling other devices where to send data, such as websites or emails. Each device needs an IP address to communicate and share information online.
 
-#### What is MAC Address ? 
+### What is MAC Address ? 
 A MAC address is a unique identifier assigned to a device's network hardware, like a Wi-Fi card or Ethernet adapter. Think of it as a serial number for your device's internet connection hardware. When devices communicate within a local network, the MAC address helps ensure that the information goes to the correct device. Unlike IP addresses, which can change, MAC addresses are usually fixed and assigned by the manufacturer.
 
 ### More Information 
