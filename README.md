@@ -36,3 +36,9 @@ A VPN, or Virtual Private Network, creates a secure connection between your devi
 ### More Information 
 
 In this lesson, we'll simplify what reverse proxies are and how they work. Think of a reverse proxy as a shield that stands between the internet and your web servers, protecting them from direct access. We'll explore how reverse proxies enhance security, improve performance, and streamline network traffic. By the end of this lesson, you'll have a clear understanding of how reverse proxies can benefit your online infrastructure. Let's dive in and uncover the secrets of reverse proxies together!
+
+### Proxy
+A proxy server acts as an intermediary between your device and the internet. When you use a proxy, your internet requests go to the proxy server first, which then forwards them to the target website. The website's response goes back to the proxy, which sends it to you. This process hides your IP address, making your online activity more private and allowing you to access blocked or restricted content. Proxies can also improve security and manage network traffic.
+
+### Reverse Proxy 
+A reverse proxy sits between the internet and a server, acting as a middleman for incoming requests. When someone tries to access a website, the reverse proxy receives the request first, then forwards it to the appropriate server. It then sends the server's response back to the user. This helps balance the load among multiple servers, improves security by hiding the server's identity, and can cache content to speed up access for users. Essentially, a reverse proxy manages and protects server resources while providing efficient user access.
