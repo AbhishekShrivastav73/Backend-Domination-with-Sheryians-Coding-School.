@@ -51,3 +51,6 @@ An ISP, or Internet Service Provider, is a company that provides you with access
 
 ### TCP/IP
 TCP/IP stands for Transmission Control Protocol/Internet Protocol, and it is the foundation of internet communication. TCP ensures that data is sent and received accurately by breaking it into packets and reassembling it at the destination. IP handles addressing and routing these packets to the correct destination. Together, TCP/IP makes sure that data travels efficiently and reliably between devices across networks, enabling everything from web browsing to email to online streaming.
+
+### UDP -(User Datagram Protocol)
+UDP, or User Datagram Protocol, is a communication method used on the internet. Unlike TCP, UDP sends data without establishing a connection or checking for errors. This makes it faster but less reliable, as data packets can be lost or arrive out of order. UDP is ideal for applications where speed is crucial and some data loss is acceptable, like live video streaming, online gaming, and voice calls.
