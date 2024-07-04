@@ -74,3 +74,93 @@ Non-blocking I/O is a way of handling input and output operations without making
 ### Libuv in NodeJs
 ##### Non-blocking or async nature of the Node js is just because of the Libuv
 Libuv is a key component in Node.js that handles the event loop and manages asynchronous operations. It provides the foundation for non-blocking I/O by abstracting the underlying operating system's asynchronous features, such as file system operations, networking, and timers. When Node.js performs an asynchronous task, like reading a file, Libuv takes care of running the task in the background and notifies Node.js when the task is complete. This allows Node.js to keep processing other tasks without waiting, making it efficient and fast for handling multiple operations simultaneously.
+
+### Node JS Single Threaded Architecture 
+Node.js is single-threaded, which means it uses a single thread to handle all tasks. However, it can handle many tasks at once because of its event-driven, non-blocking nature. Here's an easy-to-understand explanation with an example:
+
+Imagine you are a waiter in a busy restaurant, and you are the only one taking orders (the single thread). Instead of waiting by each table until the food is ready, you quickly take an order from one table, pass it to the kitchen (non-blocking), and move on to the next table to take another order. While you’re taking more orders, the kitchen (event loop) is preparing the food. When the food is ready, the kitchen notifies you, and you deliver it to the table (callback function).
+
+In this way, even though you are just one person (single-threaded), you efficiently handle many tables (tasks) at the same time. Node.js works similarly by using the event loop to manage multiple operations without waiting for each one to finish before starting the next.
+
+# NPM 
+NPM, or Node Package Manager, is a tool that comes with Node.js. It helps you easily install, share, and manage packages (reusable pieces of code) that other developers have written. With NPM, you can quickly add new features to your project without writing everything from scratch. It also helps you manage project dependencies and keep your code organized.
+
+## File Handling in Node JS
+
+File handling in Node.js involves reading from, writing to, and managing files on your system. Node.js provides the `fs` (file system) module to perform these operations. Here’s a brief overview:
+
+1. **Reading Files**: You can read files using methods like `fs.readFile` for asynchronous reading and `fs.readFileSync` for synchronous reading.
+   ```javascript
+   const fs = require('fs');
+   fs.readFile('example.txt', 'utf8', (err, data) => {
+       if (err) throw err;
+       console.log(data);
+   });
+   ```
+
+2. **Writing Files**: You can write to files using methods like `fs.writeFile` for asynchronous writing and `fs.writeFileSync` for synchronous writing.
+   ```javascript
+   fs.writeFile('example.txt', 'Hello, World!', (err) => {
+       if (err) throw err;
+       console.log('File has been written');
+   });
+   ```
+
+3. **Appending Files**: You can add content to an existing file using `fs.appendFile` for asynchronous appending.
+   ```javascript
+   fs.appendFile('example.txt', ' More content', (err) => {
+       if (err) throw err;
+       console.log('Content added');
+   });
+   ```
+
+4. **Deleting Files**: You can delete files using `fs.unlink`.
+   ```javascript
+   fs.unlink('example.txt', (err) => {
+       if (err) throw err;
+       console.log('File deleted');
+   });
+   ```
+
+5. **Other Operations**: The `fs` module also allows you to rename files, read directories, and perform many other file-related operations.
+
+By using these methods, Node.js allows you to handle files efficiently in both synchronous and asynchronous ways.
+
+<hr/>
+
+Handling folders (directories) in Node.js involves operations like creating, reading, renaming, and deleting directories. The `fs` (file system) module in Node.js provides methods for these operations:
+
+1. **Creating Directories**: You can create directories using `fs.mkdir`.
+   ```javascript
+   const fs = require('fs');
+   fs.mkdir('newFolder', (err) => {
+       if (err) throw err;
+       console.log('Directory created');
+   });
+   ```
+
+2. **Reading Directories**: You can read the contents of a directory using `fs.readdir`.
+   ```javascript
+   fs.readdir('.', (err, files) => {
+       if (err) throw err;
+       console.log('Files in the current directory:', files);
+   });
+   ```
+
+3. **Renaming Directories**: You can rename directories using `fs.rename`.
+   ```javascript
+   fs.rename('newFolder', 'renamedFolder', (err) => {
+       if (err) throw err;
+       console.log('Directory renamed');
+   });
+   ```
+
+4. **Deleting Directories**: You can delete directories using `fs.rmdir`.
+   ```javascript
+   fs.rmdir('renamedFolder', (err) => {
+       if (err) throw err;
+       console.log('Directory deleted');
+   });
+   ```
+
+These methods allow you to manage directories in your file system, enabling you to organize and manipulate folder structures as needed within your Node.js applications.
