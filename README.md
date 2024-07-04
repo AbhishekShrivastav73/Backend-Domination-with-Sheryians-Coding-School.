@@ -164,3 +164,6 @@ Handling folders (directories) in Node.js involves operations like creating, rea
    ```
 
 These methods allow you to manage directories in your file system, enabling you to organize and manipulate folder structures as needed within your Node.js applications.
+
+## HTTP Module in NODE JS
+
