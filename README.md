@@ -30,6 +30,8 @@ An IP address is a unique number assigned to each device on the internet. It wor
 ### What is MAC Address ? 
 A MAC address is a unique identifier assigned to a device's network hardware, like a Wi-Fi card or Ethernet adapter. Think of it as a serial number for your device's internet connection hardware. When devices communicate within a local network, the MAC address helps ensure that the information goes to the correct device. Unlike IP addresses, which can change, MAC addresses are usually fixed and assigned by the manufacturer.
 
+#### IP addresses are used to route the data across networks globally, while MAC addresses are used to ensure the data reaches the correct device within a local network. This combination allows data to travel from your laptop to your friend's computer accurately.
+
 ### Understanding VPN 
 A VPN, or Virtual Private Network, creates a secure connection between your device and the internet. It works by routing your internet traffic through a private server, hiding your real IP address and encrypting your data. This makes your online activities more private and secure, protecting you from hackers and allowing you to access content that might be restricted in your location. Essentially, a VPN acts like a secure tunnel for your internet traffic.
 
