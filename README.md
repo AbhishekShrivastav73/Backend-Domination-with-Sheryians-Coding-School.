@@ -35,6 +35,11 @@ A MAC address is a unique identifier assigned to a device's network hardware, li
 ### Understanding VPN 
 A VPN, or Virtual Private Network, creates a secure connection between your device and the internet. It works by routing your internet traffic through a private server, hiding your real IP address and encrypting your data. This makes your online activities more private and secure, protecting you from hackers and allowing you to access content that might be restricted in your location. Essentially, a VPN acts like a secure tunnel for your internet traffic.
 
+### Servers 
+A server is a powerful computer that provides services and resources to other computers, called clients, over a network. Servers store and manage data, run applications, and handle requests from clients. For example, when you visit a website, your computer sends a request to the server hosting that site. The server processes the request and sends the webpage back to your computer. Servers can manage many tasks simultaneously and are essential for running websites, email, online games, and many other services on the internet.
+
+## A server is a computer system connected to the internet, programmed to process, store, and provide data to other computers.
+
 ## More Information 
 
 In this lesson, we'll simplify what reverse proxies are and how they work. Think of a reverse proxy as a shield that stands between the internet and your web servers, protecting them from direct access. We'll explore how reverse proxies enhance security, improve performance, and streamline network traffic. By the end of this lesson, you'll have a clear understanding of how reverse proxies can benefit your online infrastructure. Let's dive in and uncover the secrets of reverse proxies together!
@@ -56,3 +61,16 @@ TCP/IP stands for Transmission Control Protocol/Internet Protocol, and it is the
 
 ### UDP -(User Datagram Protocol)
 UDP, or User Datagram Protocol, is a communication method used on the internet. Unlike TCP, UDP sends data without establishing a connection or checking for errors. This makes it faster but less reliable, as data packets can be lost or arrive out of order. UDP is ideal for applications where speed is crucial and some data loss is acceptable, like live video streaming, online gaming, and voice calls.
+
+### HTTP (Hypertext Transfer Protocol)
+HTTP, or Hypertext Transfer Protocol, is the foundation of data communication on the web. It defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands. When you type a website address into your browser, HTTP is the protocol used to request the web page from the server, and it also defines how the server sends the web page back to your browser.
+
+## Everthing about Node JS
+Node.js is a runtime environment that allows you to run JavaScript on the server side, outside of a web browser. It's used to build fast and scalable server-side applications, thanks to its non-blocking, event-driven architecture. This makes it ideal for real-time applications like chat apps and online gaming.
+
+### Non-blocking I/O
+Non-blocking I/O is a way of handling input and output operations without making the program wait. Instead of stopping to wait for data to be read or written, the program can continue doing other tasks. When the data is ready, the program gets a notification and processes it. This approach helps make programs faster and more efficient, especially when dealing with many tasks at once.
+
+### Libuv in NodeJs
+##### Non-blocking or async nature of the Node js is just because of the Libuv
+Libuv is a key component in Node.js that handles the event loop and manages asynchronous operations. It provides the foundation for non-blocking I/O by abstracting the underlying operating system's asynchronous features, such as file system operations, networking, and timers. When Node.js performs an asynchronous task, like reading a file, Libuv takes care of running the task in the background and notifies Node.js when the task is complete. This allows Node.js to keep processing other tasks without waiting, making it efficient and fast for handling multiple operations simultaneously.
