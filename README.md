@@ -251,3 +251,57 @@ Express.js is built on top of Node.js and simplifies the process of building web
    ```
 
 These basics allow you to create robust web applications and APIs quickly and efficiently with Express.
+
+## Middlewares
+ Middleware functions are functions that have access to the request object (`req`), the response object (`res`), and the next middleware function in the application's request-response cycle. Middleware can execute code, modify the request and response objects, end the request-response cycle, and call the next middleware function.
+   ```javascript
+   app.use((req, res, next) => {
+       console.log('A request was made at:', new Date());
+       next(); // Pass control to the next middleware
+   });
+   ```
+### Express-Session Middleware 
+Express-session is a middleware in Express.js that helps you manage user sessions. A session allows you to store data about a user's interaction with your application across multiple requests. This is useful for keeping users logged in, storing preferences, and tracking user activities. Here's a simple explanation:
+
+1. **Installation**: First, you need to install the `express-session` package.
+   ```bash
+   npm install express-session
+   ```
+
+2. **Setup**: You need to set up the session middleware in your Express app.
+   ```javascript
+   const express = require('express');
+   const session = require('express-session');
+   const app = express();
+
+   app.use(session({
+       secret: 'yourSecretKey', // A secret key to sign the session ID cookie
+       resave: false,           // Prevents saving the session if it wasn't modified
+       saveUninitialized: true  // Forces a session that is "uninitialized" to be saved
+   }));
+   ```
+
+3. **Using Sessions**: Once set up, you can use `req.session` to store and retrieve session data.
+   ```javascript
+   app.get('/', (req, res) => {
+       if (req.session.views) {
+           req.session.views++;
+           res.send(`Number of views: ${req.session.views}`);
+       } else {
+           req.session.views = 1;
+           res.send('Welcome to this page for the first time!');
+       }
+   });
+
+   app.listen(3000, () => {
+       console.log('Server is running on http://localhost:3000');
+   });
+   ```
+
+In this example:
+- When a user visits the homepage, the server checks if there is a `views` property in their session.
+- If it exists, it increments the view count and displays it.
+- If not, it sets the `views` property to 1 and welcomes the user for the first time.
+
+This way, sessions help you keep track of user interactions across multiple requests, making it easier to build features like login systems and user preferences.
+
