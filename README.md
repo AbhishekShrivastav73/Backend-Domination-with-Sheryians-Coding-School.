@@ -166,4 +166,29 @@ Handling folders (directories) in Node.js involves operations like creating, rea
 These methods allow you to manage directories in your file system, enabling you to organize and manipulate folder structures as needed within your Node.js applications.
 
 ## HTTP Module in NODE JS
+The `http` module in Node.js allows you to create web servers and handle HTTP requests and responses. It provides a way to build applications that can communicate over the web. Here’s a simple example of how to use the `http` module to create a basic web server:
+
+```javascript
+const http = require('http');
+
+// Create a server object
+const server = http.createServer((req, res) => {
+    // Send the response body
+    res.end('Hello, World!\n');
+});
+
+// The server listens on port 3000
+server.listen(3000, () => {
+    console.log('Server is running at http://localhost:3000/');
+});
+```
+
+In this example:
+1. We require the `http` module.
+2. We create a server using `http.createServer`, passing a callback function that handles incoming requests (`req`) and sends responses (`res`).
+3. The server listens on port 3000, and when accessed, it responds with "Hello, World!".
+
+This basic setup allows you to handle more complex routing and functionality, making the `http` module a powerful tool for building web applications with Node.js.
+# Express Domination 
+Express.js is a web application framework for Node.js that simplifies building web and mobile applications. It provides a set of tools and features to create robust APIs and web servers easily. With Express.js, you can handle routing, manage HTTP requests and responses, and use middleware to add extra functionality. It's lightweight, flexible, and widely used, making it easier for developers to build and manage server-side applications efficiently.
 
