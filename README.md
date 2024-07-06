@@ -5,7 +5,7 @@
 </p>
 
 # Backend-Domination-With-Sheryians-Coding-Schools
-Getting Start with Back-End Journey with Sheryians Coding Schools (Back-End Domination : Create Efficient Back-End.).
+Getting Start with Back-End Journey with Sheryians Coding Schools (Back-End Domination : Create Efficient Back-End.)
 
 # Javascript WarmUp
 In this Section, we'll introduce you to the fascinating world of JavaScript, the language that powers much of the web. You'll learn the basics of JavaScript syntax, data types, and how to write your first lines of code. Get ready to dive into the exciting world of web development with JavaScript as your guide!
