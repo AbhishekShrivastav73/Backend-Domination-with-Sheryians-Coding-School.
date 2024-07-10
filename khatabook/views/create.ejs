@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khaatabook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-zinc-100">
+    <nav class="w-full py-4 px-6 flex items-center justify-between font-medium ">
+        <h2>Khaatabook</h2>
+        <div class="flex gap-5 items-center">
+            <a href="/">Home</a>
+            <a href="/create">Create New Hisaab</a>
+        </div>
+    </nav>
+
+    <section class="p-6">
+        <h1 class="font-medium text-lg tracking-tight">Create New Hisaab</h1>
+        <form action="/createHisab" method="post" class="flex flex-col gap-5">
+
+            <textarea class="w-1/2 bg-zinc-200 h-64 p-2  rounded-md" name="hisaab" id=""></textarea>
+            <input class="bg-blue-500 text-white px-4 py-2 w-fit font-semibold rounded-md" type="submit" value="Submit">
+        </form>
+    </section>
+</body>
+
+</html>

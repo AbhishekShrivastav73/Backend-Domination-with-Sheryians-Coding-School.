@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khaatabook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body class="bg-zinc-100">
+    <nav class="w-full py-4 px-6 flex items-center justify-between font-medium ">
+        <h2>Khaatabook</h2>
+        <div class="flex gap-5 items-center">
+            <a href="/">Home</a>
+            <a href="/create">Create New Hisaab</a>
+        </div>
+    </nav>
+    <section class="p-6">
+        <h1 class="text-blue-600 font-bold text-xl tracking-tight mb-5">All Hisaab</h1>
+        <% files.forEach((elem)=>{ %>
+            <div class="w-full md:w-1/2 bg-blue-500 text-white mt-3 font-bold px-4 py-2 rounded-md flex items-center justify-between">
+
+                <h1 class="">
+                    <%= elem %>
+                </h1>
+                <div class="font-normal flex gap-2 items-center">
+                    <a href="/edit/<%= elem%>">
+
+                        <i class="ri-edit-line text-lg"></i>
+                    </a>
+                    <a href="/delete/<%= elem %>">
+
+                        <i class="ri-delete-bin-line text-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <% }) %>
+    </section>
+</body>
+
+</html>
