@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/github/issues/AbhishekShrivastav73/Backend-Domination-with-Sheryians-Coding-School.?style=flat-square" alt="GitHub issues">
 </p>
 
-# Backend-Domination-With-Sheryians-Coding-Schools
+# Backend-Domination-With-Sheryians-Coding-Schools.
 Getting Start with Back-End Journey with Sheryians Coding Schools (Back-End Domination : Create Efficient Back-End.)
 
 # Javascript WarmUp
