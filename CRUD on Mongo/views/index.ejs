@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for micro-interactions */
+        .btn:hover {
+            transform: translateY(-3px);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .feature:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .stat:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .activity-item:hover {
+            background-color: #f0f4f8;
+            transition: background-color 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #60a5fa;
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-blue-600 text-white shadow-md">
+        <nav class="container mx-auto p-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">UMS</a>
+            <ul class="flex space-x-4">
+                <li><a href="/" class="hover:underline">Home</a></li>
+                <li><a href="/dashboard" class="hover:underline">Dashboard</a></li>
+                <li><a href="#" class="hover:underline">Profile</a></li>
+                <li><a href="#" class="hover:underline">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-500 text-white text-center py-20">
+        <h1 class="text-4xl font-bold mb-4">Welcome to the User Management System</h1>
+        <p class="text-xl mb-6">Manage your users efficiently and effectively.</p>
+        <div class="space-x-4">
+            <a href="/createuser" class="btn bg-white text-blue-500 px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition">Get Started</a>
+            <a href="/users" class="btn bg-white text-blue-500 px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition">View Users</a>
+        </div>
+    </section>
+
+    <!-- Features Overview -->
+    <section class="container mx-auto py-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="feature bg-white shadow-lg rounded-lg p-6 text-center transition-transform">
+                <i class="fas fa-user-plus text-blue-500 text-4xl mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">User Creation</h3>
+                <p>Easily add new users to the system.</p>
+            </div>
+            <div class="feature bg-white shadow-lg rounded-lg p-6 text-center transition-transform">
+                <i class="fas fa-user-shield text-blue-500 text-4xl mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Role Assignment</h3>
+                <p>Assign roles and permissions to users.</p>
+            </div>
+            <div class="feature bg-white shadow-lg rounded-lg p-6 text-center transition-transform">
+                <i class="fas fa-chart-line text-blue-500 text-4xl mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Activity Monitoring</h3>
+                <p>Track user activity and generate reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Statistics -->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Statistics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="stat bg-white shadow-lg rounded-lg p-6 text-center transition-transform">
+                    <h3 class="text-xl font-semibold mb-2">Total Users</h3>
+                    <p class="text-3xl font-bold">1234</p>
+                </div>
+                <div class="stat bg-white shadow-lg rounded-lg p-6 text-center transition-transform">
+                    <h3 class="text-xl font-semibold mb-2">Active Users</h3>
+                    <p class="text-3xl font-bold">567</p>
+                </div>
+                <div class="stat bg-white shadow-lg rounded-lg p-6 text-center transition-transform">
+                    <h3 class="text-xl font-semibold mb-2">Admins</h3>
+                    <p class="text-3xl font-bold">10</p>
+                </div>
+                <div class="stat bg-white shadow-lg rounded-lg p-6 text-center transition-transform">
+                    <h3 class="text-xl font-semibold mb-2">Recent Registrations</h3>
+                    <p class="text-3xl font-bold">23</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Activities -->
+    <section class="container mx-auto py-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Recent Activities</h2>
+        <ul class="space-y-4">
+            <li class="activity-item bg-white shadow-lg rounded-lg p-6 transition-colors">
+                <p>User John Doe logged in</p>
+            </li>
+            <li class="activity-item bg-white shadow-lg rounded-lg p-6 transition-colors">
+                <p>New user Jane Smith registered</p>
+            </li>
+            <li class="activity-item bg-white shadow-lg rounded-lg p-6 transition-colors">
+                <p>User Alice updated her profile</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>Contact us at: contact@ums.com</p>
+            <ul class="flex justify-center space-x-4 mt-4">
+                <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                <li><a href="#" class="hover:underline">Terms of Service</a></li>
+            </ul>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="social-icon text-2xl transition-colors"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon text-2xl transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon text-2xl transition-colors"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

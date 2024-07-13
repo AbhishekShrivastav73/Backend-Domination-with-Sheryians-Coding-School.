@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for micro-interactions */
+        .table-row:hover {
+            background-color: #f0f4f8;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-blue-600 text-white shadow-md">
+        <nav class="container mx-auto p-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">UMS</a>
+            <ul class="flex space-x-4">
+                <li><a href="/" class="hover:underline">Home</a></li>
+                <li><a href="/dashboard" class="hover:underline">Dashboard</a></li>
+                <li><a href="#" class="hover:underline">Profile</a></li>
+                <li><a href="#" class="hover:underline">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Users Table -->
+    <section class="container mx-auto py-12">
+        <h2 class="text-3xl font-bold text-center mb-8">All Users</h2>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <table class="min-w-full leading-normal">
+                <thead>
+                    <tr>
+                        <th
+                            class="px-5 py-3 bg-gray-100 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-normal">
+                            Name
+                        </th>
+                        <th
+                            class="px-5 py-3 bg-gray-100 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-normal">
+                            Email
+                        </th>
+                        <th
+                            class="px-5 py-3 bg-gray-100 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-normal">
+                            Phone
+                        </th>
+                        <th
+                            class="px-5 py-3 bg-gray-100 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-normal">
+                            Role
+                        </th>
+                        <th
+                            class="px-5 py-3 bg-gray-100 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-normal">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example User Row -->
+
+                    <% allUsers.forEach((elem, idx)=> { %>
+                        <tr class="table-row">
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
+                                    <div class="ml-3">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            <%= elem.firstName %>
+                                                <%= elem.lastName %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    <%= elem.email %>
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    <%= elem.phone %>
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    <%= elem.role %>
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    <%= elem.jobTitle %>
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                           <a href="/edit/<%= elem.firstName%>"  class="btn bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition">Edit</a>
+                                <a class="btn bg-red-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-red-700 transition ml-2"
+                                    href="/delete/<%= elem.firstName %>"> Delete</a>
+                            </td>
+                        </tr>
+                        <% }); %>
+
+
+
+                            <!-- Repeat user rows as necessary -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>Contact us at: contact@ums.com</p>
+            <ul class="flex justify-center space-x-4 mt-4">
+                <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                <li><a href="#" class="hover:underline">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
