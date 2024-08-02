@@ -303,5 +303,5 @@ In this example:
 - If it exists, it increments the view count and displays it.
 - If not, it sets the `views` property to 1 and welcomes the user for the first time.
 
-This way, sessions help you keep track of user interactions across multiple requests, making it easier to build features like login systems and user preferences.
+This way, sessions help you keep track of user interactions across multiple requests, making it easier to build features like login systems and user preferences
 
