@@ -303,5 +303,60 @@ In this example:
 - If it exists, it increments the view count and displays it.
 - If not, it sets the `views` property to 1 and welcomes the user for the first time.
 
-This way, sessions help you keep track of user interactions across multiple requests, making it easier to build features like login systems and user preferences
+This way, sessions help you keep track of user interactions across multiple requests, making it easier to build features like login systems and user preferences.
+
+## Connect-Flash : 
+**Connect-Flash** is a middleware for Node.js that allows you to store temporary messages (flash messages) in a session. These messages can be used to display notifications, alerts, or any other messages to the user after they perform an action (e.g., form submission, login, etc.). The messages are cleared after being displayed once.
+
+### Basic Code Example
+
+1. **Install the required packages:**
+
+   ```bash
+   npm install express-session connect-flash
+   ```
+
+2. **Set up the middleware in your Express app:**
+
+   ```javascript
+   const express = require('express');
+   const session = require('express-session');
+   const flash = require('connect-flash');
+
+   const app = express();
+
+   // Set up session middleware
+   app.use(session({
+     secret: 'yourSecretKey',
+     resave: false,
+     saveUninitialized: true,
+   }));
+
+   // Set up connect-flash middleware
+   app.use(flash());
+
+   // Example route to set a flash message
+   app.get('/login', (req, res) => {
+     req.flash('info', 'Login successful!');
+     res.redirect('/dashboard');
+   });
+
+   // Example route to display flash message
+   app.get('/dashboard', (req, res) => {
+     const message = req.flash('info');
+     res.send(message); // This will display 'Login successful!'
+   });
+
+   app.listen(3000, () => {
+     console.log('Server is running on port 3000');
+   });
+   ```
+
+### How It Works
+
+- When the user visits `/login`, a flash message is stored using `req.flash('info', 'Login successful!')`.
+- The user is then redirected to `/dashboard`, where the message is retrieved and displayed using `req.flash('info')`.
+- The message is automatically cleared after being retrieved.
+
+This way, flash messages are useful for displaying one-time notifications like success or error messages after form submissions or other actions.
 
