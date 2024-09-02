@@ -819,3 +819,127 @@ app.listen(3000, () => {
 ---
 
 I hope this explanation makes dynamic routing in Express.js clear and easy to understand! Let me know if you have any other questions or need further clarification.
+
+## Server side rendering with EJS : 
+
+**Server-Side Rendering (SSR)** using **EJS (Embedded JavaScript)** is a technique where the HTML content of a webpage is generated on the server before being sent to the client’s browser. This allows you to create dynamic web pages that can display different content based on the data processed on the server.
+
+### What is Server-Side Rendering?
+
+- **Server-Side Rendering** means that the server generates the full HTML for a webpage before sending it to the client. The browser then receives this HTML and displays it.
+- This is different from **Client-Side Rendering** (CSR), where the server sends minimal HTML and JavaScript to the client, and the browser generates the full content dynamically on the client side.
+
+### Why Use EJS for SSR?
+
+**EJS** is a simple templating engine that lets you write HTML with embedded JavaScript. It makes it easy to create dynamic content by mixing HTML with data passed from the server.
+
+### How to Use EJS for Server-Side Rendering
+
+1. **Set Up Express and EJS**:
+
+   First, you need to install Express and EJS:
+
+   ```bash
+   npm install express ejs
+   ```
+
+   Then, set up your Express application to use EJS as the templating engine:
+
+   ```javascript
+   const express = require('express');
+   const app = express();
+
+   // Set EJS as the templating engine
+   app.set('view engine', 'ejs');
+
+   // Example route
+   app.get('/', (req, res) => {
+     const data = {
+       title: 'Welcome to My Website',
+       message: 'Hello, world!'
+     };
+     // Render the 'index.ejs' template and pass data to it
+     res.render('index', data);
+   });
+
+   app.listen(3000, () => {
+     console.log('Server is running on port 3000');
+   });
+   ```
+
+2. **Create an EJS Template**:
+
+   Inside your project, create a folder called `views` and then create an `index.ejs` file inside it:
+
+   ```html
+   <!-- views/index.ejs -->
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title><%= title %></title>
+   </head>
+   <body>
+       <h1><%= message %></h1>
+   </body>
+   </html>
+   ```
+
+3. **How It Works**:
+
+   - **`res.render('index', data)`**: This tells Express to look for a file named `index.ejs` in the `views` folder, render it, and pass the `data` object to it.
+   - **EJS Syntax**: Inside the EJS file, `<%= title %>` and `<%= message %>` are placeholders that get replaced with the actual data passed from the server.
+   - **Generated HTML**: When the client requests the homepage (`/`), the server processes the EJS template, replaces the placeholders with the data values, and sends the fully rendered HTML to the client.
+
+4. **Client Receives Rendered HTML**:
+
+   When a user visits your website, the server sends the HTML generated from the EJS template. The browser then simply displays this HTML. No further processing or JavaScript is needed to display the content.
+
+### Example Scenario
+
+Suppose you have a blog, and you want to display a list of articles on the homepage. You can use SSR with EJS to dynamically generate the HTML for each article:
+
+```javascript
+app.get('/blog', (req, res) => {
+  const articles = [
+    { title: 'First Post', content: 'This is the first post.' },
+    { title: 'Second Post', content: 'This is the second post.' }
+  ];
+  
+  res.render('blog', { articles });
+});
+```
+
+In your `blog.ejs` file:
+
+```html
+<!-- views/blog.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog</title>
+</head>
+<body>
+    <h1>Blog Articles</h1>
+    <ul>
+        <% articles.forEach(article => { %>
+            <li>
+                <h2><%= article.title %></h2>
+                <p><%= article.content %></p>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
+```
+
+### In Simple Terms
+
+- **Server-Side Rendering with EJS**: The server generates the HTML for your webpage using EJS templates, fills in the dynamic parts with data, and then sends the complete HTML to the browser.
+- **Advantages**:
+  - **Faster initial load**: Since the HTML is pre-rendered, the page loads faster in the browser.
+  - **Better SEO**: Search engines can easily crawl and index your content because it’s available in the HTML.
+- **Dynamic Content**: You can use EJS to inject dynamic content into your web pages based on the data provided by your server, making your pages more interactive and personalized.
+
+Server-Side Rendering with EJS is a straightforward and powerful way to build dynamic web pages that are fast and SEO-friendly.
