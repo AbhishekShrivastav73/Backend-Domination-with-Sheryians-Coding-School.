@@ -1036,3 +1036,42 @@ app.listen(3000, () => {
 - **Form Data**: The submitted form data is easily accessible in `req.body` and can be used to perform various actions, like saving to a database or simply responding with a message.
 
 Form handling in EJS is a straightforward process where you combine your server-side logic with dynamic HTML templates to create interactive and user-friendly web pages.
+
+## API (Application Programming Interface) : 
+An **API (Application Programming Interface)** allows different software applications to communicate with each other. It defines how requests are made (like asking for data) and how responses are given (like sending data back).
+
+For web apps, APIs use **HTTP methods**:
+- **GET**: To fetch data.
+- **POST**: To send new data.
+- **PUT**: To update data.
+- **DELETE**: To remove data.
+
+APIs make it easier for different systems (like websites or apps) to interact and exchange information efficiently.
+
+## Basic Error Handling in Express  :
+
+**Error handling** is the process of managing errors in a program to prevent it from crashing and to provide meaningful feedback. In web development, you handle errors by catching them, logging them, and responding with appropriate messages or status codes.
+
+In **Express.js**, a common way to handle errors is using middleware:
+
+[Error Handler ko hamesha last me bnao]
+
+```javascript
+app.use((err, req, res, next) => {
+  res.status(500).send('Something went wrong!');
+});
+```
+
+This catches any errors in the app and returns a response like "Something went wrong!" with a 500 status code.
+
+## POSTMAN 
+
+**Postman** is a popular tool used by developers to test APIs. It allows you to send HTTP requests (like GET, POST, PUT, DELETE) to APIs and see the responses, making it easier to debug and test your backend services.
+
+### Key Features of Postman:
+- **Send Requests**: You can send requests to API endpoints and see the responses directly (in formats like JSON or XML).
+- **Test API Endpoints**: You can check if an API is working correctly by sending data (like in POST requests) or fetching data (in GET requests).
+- **Headers and Body**: You can add headers, authentication tokens, or data in the request body to simulate real API calls.
+- **Save Requests**: Postman lets you save and organize requests into collections for easy re-use.
+
+Postman is widely used to ensure APIs are functioning properly during development.
