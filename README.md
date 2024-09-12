@@ -1241,3 +1241,158 @@ This removes the document with the specified ID from the collection.
 - **Delete**: Remove documents from the collection (e.g., `deleteOne()`, `findByIdAndDelete()`).
 
 These basic operations allow you to manage data in MongoDB efficiently.
+
+# Advanced MongoDB Queries 
+
+### 1. **`insertMany()`**
+- **Purpose**: Adds multiple documents to a collection at once.
+- **Usage**: Instead of inserting one document at a time, you can insert many documents in a single query, which improves performance.
+
+#### Example:
+```javascript
+const users = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Charlie', age: 35 }
+];
+
+await User.insertMany(users);
+console.log('Documents inserted!');
+```
+
+### 2. **Comparison Operators**
+These operators are used to compare values in MongoDB queries.
+
+#### **`$eq`**: Equal
+- **Purpose**: Finds documents where a field matches a specific value.
+  
+#### Example: Find users who are 25 years old
+```javascript
+await User.find({ age: { $eq: 25 } });
+```
+
+#### **`$ne`**: Not Equal
+- **Purpose**: Finds documents where a field **does not** match a specific value.
+
+#### Example: Find users who are **not** 25 years old
+```javascript
+await User.find({ age: { $ne: 25 } });
+```
+
+#### **`$gt`**: Greater Than
+- **Purpose**: Finds documents where a field's value is **greater than** the specified value.
+
+#### Example: Find users older than 30
+```javascript
+await User.find({ age: { $gt: 30 } });
+```
+
+#### **`$gte`**: Greater Than or Equal To
+- **Purpose**: Finds documents where a field's value is **greater than or equal to** the specified value.
+
+#### Example: Find users who are 30 or older
+```javascript
+await User.find({ age: { $gte: 30 } });
+```
+
+#### **`$lt`**: Less Than
+- **Purpose**: Finds documents where a field's value is **less than** the specified value.
+
+#### Example: Find users younger than 30
+```javascript
+await User.find({ age: { $lt: 30 } });
+```
+
+#### **`$lte`**: Less Than or Equal To
+- **Purpose**: Finds documents where a field's value is **less than or equal to** the specified value.
+
+#### Example: Find users who are 30 or younger
+```javascript
+await User.find({ age: { $lte: 30 } });
+```
+
+### 3. **Array Operators**
+These operators help you query documents with array fields.
+
+#### **`$in`**: Matches Any Value in Array
+- **Purpose**: Finds documents where a field's value is present in an array of values.
+
+#### Example: Find users whose age is either 25, 30, or 35
+```javascript
+await User.find({ age: { $in: [25, 30, 35] } });
+```
+
+#### **`$nin`**: Not in Array
+- **Purpose**: Finds documents where a field's value is **not** present in an array of values.
+
+#### Example: Find users whose age is **not** 25, 30, or 35
+```javascript
+await User.find({ age: { $nin: [25, 30, 35] } });
+```
+
+### 4. **Field Operators**
+These are operators that deal with field existence and other field-related conditions.
+
+#### **`$exists`**: Field Exists or Not
+- **Purpose**: Finds documents where a field either exists or does not exist.
+
+#### Example: Find users who have an `email` field
+```javascript
+await User.find({ email: { $exists: true } });
+```
+
+#### Example: Find users who **do not** have an `email` field
+```javascript
+await User.find({ email: { $exists: false } });
+```
+
+### 5. **Logical Operators**
+Logical operators combine multiple conditions.
+
+#### **`$and`**: Combine Multiple Conditions (All Must Match)
+- **Purpose**: Finds documents where **all** conditions are true.
+
+#### Example: Find users who are older than 25 **and** younger than 35
+```javascript
+await User.find({
+  $and: [
+    { age: { $gt: 25 } },
+    { age: { $lt: 35 } }
+  ]
+});
+```
+
+#### **`$or`**: Combine Multiple Conditions (Any Can Match)
+- **Purpose**: Finds documents where **any** of the conditions are true.
+
+#### Example: Find users who are 25 **or** 35 years old
+```javascript
+await User.find({
+  $or: [
+    { age: 25 },
+    { age: 35 }
+  ]
+});
+```
+
+### 6. **Regular Expression (`$regex`)**
+- **Purpose**: Finds documents where a string field matches a regular expression pattern. Useful for pattern matching and partial string searches.
+
+#### Example: Find users whose name starts with "Jo"
+```javascript
+await User.find({ name: { $regex: '^Jo', $options: 'i' } });
+```
+- `^Jo`: Finds names that start with "Jo".
+- `$options: 'i'`: Makes the search case-insensitive (so it matches both "Jo" and "jo").
+
+---
+
+### Summary:
+- **`insertMany()`**: Insert multiple documents at once.
+- **`$eq`**, **`$ne`**, **`$gt`**, **`$gte`**, **`$lt`**, **`$lte`**: Compare values (equals, not equals, greater/less than).
+- **`$in`**, **`$nin`**: Match values within arrays.
+- **`$exists`**: Check if a field exists.
+- **`$and`**, **`$or`**: Combine multiple conditions.
+- **`$regex`**: Search by pattern (regular expressions).
+
+These operators make it easy to write powerful queries that filter and find exactly the data you need in MongoDB.
