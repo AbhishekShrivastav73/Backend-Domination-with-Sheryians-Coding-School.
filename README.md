@@ -1634,5 +1634,5 @@ const Post = mongoose.model('Post', postSchema);
 
 ### Summary:
 - **Embedding**: Store related data together in one document. Best for small, closely related data.
-- **Referencing**: Store related data in separate collections and use references. Best for large or independent data.
+- **Referencing**: Store related data in separate collections and use references. Best for large or independent data
 
