@@ -1719,5 +1719,5 @@ db.sales.aggregate([
 - **Reporting**: Generating summaries of sales, orders, or any metrics.
 - **Data transformation**: Reshaping documents, renaming fields, or combining data from multiple collections.
 
-Aggregation in MongoDB is very flexible and powerful for handling large datasets and generating complex queries.
+Aggregation in MongoDB is very flexible and powerful for handling large datasets and generating complex queries
 
