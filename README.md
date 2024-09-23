@@ -1721,3 +1721,4 @@ db.sales.aggregate([
 
 Aggregation in MongoDB is very flexible and powerful for handling large datasets and generating complex queries
 
+## Production Level Setup 
