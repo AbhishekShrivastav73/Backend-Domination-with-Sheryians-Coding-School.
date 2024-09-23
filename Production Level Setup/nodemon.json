@@ -1,0 +1,5 @@
+{
+    "watch" : "*",
+    "ext"  : "js,json,ejs,css",
+    "exec" : "npm run build:css && node app.js"
+}
