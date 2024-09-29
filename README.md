@@ -1721,4 +1721,271 @@ db.sales.aggregate([
 
 Aggregation in MongoDB is very flexible and powerful for handling large datasets and generating complex queries
 
+
+## JWT (JSON Web Token) Authentication and Authorization
+
+**JWT (JSON Web Token)** is a widely used mechanism for securing APIs and web applications. It is commonly used for **authentication** and **authorization**.
+
+---
+
+### 1. **Authentication vs Authorization**
+
+- **Authentication**: Verifying the identity of a user (i.e., checking if the user is who they say they are).
+- **Authorization**: Determining what actions or resources the authenticated user is allowed to access.
+
+---
+
+### 2. **What is JWT?**
+
+JWT is a compact, self-contained token used to securely transmit information between parties. It consists of three parts:
+
+1. **Header**: Contains metadata, such as the type of token and the algorithm used for signing (e.g., HMAC SHA256).
+2. **Payload**: Contains the claims, which are statements about the user (e.g., user ID, email, roles).
+3. **Signature**: Used to verify the token's integrity and authenticity. It's created by encoding the header and payload and signing it with a secret key or private key.
+
+**JWT Structure**:
+```text
+header.payload.signature
+```
+
+Example JWT:
+```text
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImphbmVkbyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjA5MjQxMzQ4fQ.-9Hmf7Vr0ibTveZYUkpbL2S5F6-Y88YQYbL-Ts2XwL8
+```
+
+---
+
+### 3. **How JWT Works in Authentication and Authorization**
+
+#### **Step 1: User Login (Authentication)**
+1. The user provides their login credentials (e.g., username and password) to the server.
+2. The server validates the credentials.
+3. If valid, the server creates a **JWT** that includes information about the user (e.g., user ID, role) and sends it back to the client.
+
+#### **Step 2: Client Stores the JWT**
+- The client (usually in a web app) stores the JWT in **localStorage** or **cookies**.
+
+#### **Step 3: Accessing Protected Resources (Authorization)**
+1. The client sends the JWT in the **Authorization** header of every request to protected routes.
+   ```http
+   GET /dashboard HTTP/1.1
+   Host: myapp.com
+   Authorization: Bearer <JWT>
+   ```
+2. The server verifies the JWT by checking the signature and the token's validity.
+3. If the JWT is valid, the server grants access to the protected resource.
+
+---
+
+### 4. **JWT Example in Node.js with Express**
+
+#### **1. User Login and Token Generation**
+When a user successfully logs in, the server generates a JWT and sends it to the client.
+
+```javascript
+const jwt = require('jsonwebtoken');
+const express = require('express');
+const app = express();
+
+app.post('/login', (req, res) => {
+  const user = { id: 1, username: 'janedoe' }; // Example user
+
+  // Generate JWT
+  const token = jwt.sign(user, 'secretkey', { expiresIn: '1h' });
+  res.json({ token });
+});
+```
+
+#### **2. Protecting Routes (Authorization)**
+To protect routes, use middleware to verify the JWT.
+
+```javascript
+const jwt = require('jsonwebtoken');
+
+// Middleware to verify token
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) return res.sendStatus(401); // No token, access denied
+
+  jwt.verify(token, 'secretkey', (err, user) => {
+    if (err) return res.sendStatus(403); // Invalid token
+    req.user = user; // Save user info for later use
+    next();
+  });
+}
+
+app.get('/protected', authenticateToken, (req, res) => {
+  res.json({ message: 'This is a protected route', user: req.user });
+});
+```
+
+In this example:
+- The `authenticateToken` middleware checks for the JWT in the `Authorization` header and verifies it.
+- If the token is valid, the request proceeds to the protected route.
+
+---
+
+### 5. **JWT Claims**
+
+JWTs contain **claims** in the payload, which are pieces of information about the user. Claims can be:
+
+- **Registered claims**: Predefined claims like `iss` (issuer), `exp` (expiration time), `sub` (subject), and `aud` (audience).
+- **Public claims**: Custom claims defined by the developer (e.g., `userId`, `role`).
+- **Private claims**: Custom claims that are agreed upon by both parties (e.g., `organizationId`).
+
+Example payload in a JWT:
+```json
+{
+  "sub": "1234567890",
+  "name": "Jane Doe",
+  "admin": true,
+  "iat": 1516239022
+}
+```
+
+---
+
+### 6. **Token Expiration**
+JWTs typically include an **expiration** claim (`exp`) to limit the token's validity. This helps prevent issues like replay attacks.
+
+Example of generating a JWT with an expiration:
+```javascript
+const token = jwt.sign(user, 'secretkey', { expiresIn: '1h' });
+```
+
+---
+
+### 7. **Advantages of JWT**
+
+- **Stateless**: No need to store tokens in a database, as the token itself contains all the necessary information.
+- **Scalable**: Because the server doesn’t need to store session information, JWTs can be used in microservices and distributed systems.
+- **Portable**: JWTs can be used across multiple domains, services, and platforms.
+
+---
+
+### 8. **Security Concerns**
+
+- **Token storage**: Store tokens securely in cookies (with `HttpOnly` and `Secure` flags) rather than `localStorage` to prevent XSS attacks.
+- **Token signing**: Always use a strong secret key to sign tokens.
+- **Token expiration**: Set an appropriate expiration time for tokens and use **refresh tokens** for extending sessions.
+
+---
+
+### Summary:
+- **JWT Authentication**: Verifies the user’s identity via a token.
+- **JWT Authorization**: Grants access to resources based on the verified token.
+- **How JWT Works**: User logs in, gets a JWT, and uses it in subsequent requests to access protected routes.
+
+
 ## Production Level Setup 
+## Multer
+**Multer** is a middleware for handling file uploads in **Node.js** and **Express.js** applications. It is used to process multipart/form-data, which is primarily used for uploading files.
+
+### Key Features of Multer:
+- Handles file uploads by storing files on the disk or in memory.
+- Provides control over where and how files are stored.
+- Supports file validation and filtering (e.g., allowing only certain file types).
+
+---
+
+### How Multer Works:
+When a client uploads a file via a form, the server receives the file as part of the request. Multer helps to parse this file and store it either in memory or on the server's disk.
+
+### Installing Multer:
+To use Multer, install it via npm:
+```bash
+npm install multer
+```
+
+### Basic Setup with Multer:
+
+```javascript
+const express = require('express');
+const multer = require('multer');
+const app = express();
+
+// Set up storage location and filename for uploaded files
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/'); // Directory where files will be stored
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname); // Naming files with the current timestamp
+  }
+});
+
+// Initialize multer with the storage configuration
+const upload = multer({ storage: storage });
+
+// Set up a POST route for file upload
+app.post('/upload', upload.single('myFile'), (req, res) => {
+  res.send('File uploaded successfully!');
+});
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+```
+
+### Explanation:
+1. **Storage Configuration**: 
+   - `destination`: Defines where the uploaded files will be stored.
+   - `filename`: Defines how the file should be named (in this case, using the current timestamp to prevent name clashes).
+   
+2. **Multer Middleware**: 
+   - `upload.single('myFile')`: Handles a single file upload. The `'myFile'` refers to the name of the file input in the form.
+   
+3. **Uploading File**: 
+   - In this setup, the client uploads a file using a form with a file input named `myFile`.
+
+---
+
+### Form Example for File Upload:
+On the client-side, you can use an HTML form for uploading a file:
+```html
+<form action="/upload" method="POST" enctype="multipart/form-data">
+  <input type="file" name="myFile" />
+  <button type="submit">Upload</button>
+</form>
+```
+
+---
+
+### Multer Options:
+Multer also provides several options for more advanced use cases:
+
+1. **Limit File Size**:
+   You can limit the file size during upload:
+   ```javascript
+   const upload = multer({ 
+     storage: storage,
+     limits: { fileSize: 1000000 } // Limit file size to 1MB
+   });
+   ```
+
+2. **Filter Files**:
+   You can filter files by their type (e.g., only allow images):
+   ```javascript
+   const fileFilter = (req, file, cb) => {
+     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+       cb(null, true); // Accept the file
+     } else {
+       cb(null, false); // Reject the file
+     }
+   };
+
+   const upload = multer({ 
+     storage: storage,
+     fileFilter: fileFilter
+   });
+   ```
+
+---
+
+### Summary:
+- **Multer** helps handle file uploads in Node.js apps.
+- It stores uploaded files either on the server’s disk or in memory.
+- You can configure file size limits and file type validation.
