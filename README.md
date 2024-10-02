@@ -24,6 +24,7 @@ In this lesson, we'll take a deep dive into the fascinating world of the interne
 
 ### How Internet Works ? 
 The internet connects devices worldwide through a network of cables and servers. When you request a webpage, your device sends data to your <mark>Internet Service Provider (ISP) </mark>, which then routes it to the server hosting the page. The server sends the data back, and your device displays the webpage. This happens quickly, enabling global communication.
+
 ### Understanding IP Address ?
 An IP address is a unique number assigned to each device on the internet. It works like a home address, telling other devices where to send data, such as websites or emails. Each device needs an IP address to communicate and share information online.(IP is provided by the ISP)
 
