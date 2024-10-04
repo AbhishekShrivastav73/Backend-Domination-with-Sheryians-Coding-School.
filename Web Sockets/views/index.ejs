@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>Socket</h1>
+    <h3 class="message"></h3>
+
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+        integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+        crossorigin="anonymous"></script>
+    <script>
+        const socket = io();
+        socket.emit('abcd', 12);// emit mtlb bhejna
+        socket.on('defg', function (msgs) {
+            document.querySelector('.message').innerHTML = msgs
+            console.log(msgs);
+
+        })
+        socket.emit('typing', function (data) {
+            console.log(`user started typing`);})
+        socket.on('typing', function (data) {
+            console.log(`user is typing ${JSON.stringify(data.user)}`)
+
+        })
+    </script>
+</body>
+
+</html>
