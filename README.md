@@ -17,7 +17,7 @@ In this lesson, we'll introduce you to the concept of asynchronous programming i
 
 # How Internet Works.
 
-## Basics 
+## Basics.
 
 In this lesson, we'll take a deep dive into the fascinating world of the internet. We'll explore how data travels across the globe, from your device to servers and back again. You'll learn about protocols like TCP/IP, DNS, and HTTP, which form the backbone of the internet. By the end of this lesson, you'll have a clear understanding of the infrastructure that powers the internet and how information is transmitted between devices. Let's unravel the mysteries of the internet together!
 
